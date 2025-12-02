@@ -15,6 +15,7 @@ const Navigation = () => {
   }, []);
   
   const { theme, toggleTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,14 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const dispatchActiveSection = (id: string) => {
+    try {
+      window.dispatchEvent(new CustomEvent('activeSection', { detail: { id } }));
+    } catch (e) {
+      // ignore
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -32,13 +41,50 @@ const Navigation = () => {
         behavior: "smooth"
       });
     }
+    // dispatch immediately so other components (like Contact) can react
+    dispatchActiveSection(id);
+    // set active immediately for instant feedback
+    setActiveSection(id);
+  };
+
+  useEffect(() => {
+    // Observe main sections and update activeSection when they enter center of viewport
+    const ids = ["home", "about", "skills", "projects", "experience", "education", "contact"];
+    const options: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px 0px -50% 0px',
+      threshold: 0.25,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (id) setActiveSection(id);
+        }
+      });
+    }, options);
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const navButtonClass = (id: string) => {
+    const base = 'px-4 py-2 text-sm font-medium transition-all rounded-full hover:scale-105 active:scale-95';
+    const active = 'bg-gradient-to-r from-gradient-start to-gradient-end text-white border-transparent';
+    const inactive = 'bg-transparent text-foreground hover:bg-gradient-to-r hover:from-gradient-start hover:to-gradient-end hover:text-white';
+    return `${base} ${activeSection === id ? active : inactive}`;
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? "bg-background/80 dark:bg-background/40 backdrop-blur-md border-b border-border/50 shadow-sm py-4" 
-        : "bg-transparent py-6"
+      isScrolled
+        ? "bg-background/80 dark:bg-background/40 backdrop-blur-md border-transparent shadow-sm py-4"
+        : "bg-transparent py-6 hover:bg-background/80 dark:hover:bg-background/40 hover:backdrop-blur-md hover:border-b hover:border-transparent hover:shadow-sm hover:py-4"
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center max-w-7xl">
         <button 
@@ -46,47 +92,18 @@ const Navigation = () => {
           className="flex items-center gap-3"
           aria-label="Go to top / Home"
         >
-          <img src="/kv.svg" alt="KV" className="w-8 h-8" />
+          <img src="/kv.svg" alt="KV" className="w-14 h-14" />
           <span className="sr-only">Kirankumar Vasala</span>
         </button>
         <div className="flex items-center gap-4">
-          <div className="hidden md:flex gap-1 items-center bg-secondary/50 dark:bg-secondary/20 backdrop-blur-sm px-2 py-2 rounded-full border border-border/50">
-            <button 
-              onClick={() => scrollToSection("about")} 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all rounded-full hover:bg-background dark:hover:bg-background/50 hover:scale-105 active:scale-95"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => scrollToSection("skills")} 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all rounded-full hover:bg-background dark:hover:bg-background/50 hover:scale-105 active:scale-95"
-            >
-              Skills
-            </button>
-            <button 
-              onClick={() => scrollToSection("projects")} 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all rounded-full hover:bg-background dark:hover:bg-background/50 hover:scale-105 active:scale-95"
-            >
-              Projects
-            </button>
-            <button 
-              onClick={() => scrollToSection("experience")} 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all rounded-full hover:bg-background dark:hover:bg-background/50 hover:scale-105 active:scale-95"
-            >
-              Experience
-            </button>
-            <button 
-              onClick={() => scrollToSection("education")} 
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all rounded-full hover:bg-background dark:hover:bg-background/50 hover:scale-105 active:scale-95"
-            >
-              Education
-            </button>
-            <Button 
-              onClick={() => scrollToSection("contact")} 
-              className="bg-gradient-to-r from-gradient-start to-gradient-end text-white hover:shadow-lg hover:shadow-primary/50 transition-all rounded-full hover:scale-105 active:scale-95"
-            >
-              Contact
-            </Button>
+            <div className="hidden md:flex gap-1 items-center bg-secondary/50 dark:bg-secondary/20 backdrop-blur-sm px-2 py-2 rounded-full border border-border/50">
+            <button onClick={() => scrollToSection("home")} className={navButtonClass('home')}>Home</button>
+            <button onClick={() => scrollToSection("about")} className={navButtonClass('about')}>About</button>
+            <button onClick={() => scrollToSection("skills")} className={navButtonClass('skills')}>Skills</button>
+            <button onClick={() => scrollToSection("projects")} className={navButtonClass('projects')}>Projects</button>
+            <button onClick={() => scrollToSection("experience")} className={navButtonClass('experience')}>Experience</button>
+            <button onClick={() => scrollToSection("education")} className={navButtonClass('education')}>Education</button>
+            <Button onClick={() => scrollToSection("contact")} className={navButtonClass('contact')}>Contact</Button>
           </div>
           
           {/* Theme Toggle Button */}

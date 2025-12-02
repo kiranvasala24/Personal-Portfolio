@@ -3,8 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { Mail, MapPin, Phone } from "lucide-react";
+// no local React hooks required here
 
 const Contact = () => {
   const { elementRef, isVisible } = useIntersectionObserver();
@@ -13,9 +14,10 @@ const Contact = () => {
     <section
       id="contact"
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`section-padding bg-secondary/30 transition-all duration-700 ${
+      className={`section-padding transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
+      aria-live="polite"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
@@ -97,7 +99,7 @@ const Contact = () => {
                 className="bg-background"
               />
             </div>
-            <Button className="w-full bg-gradient-to-r from-gradient-start to-gradient-end text-white hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-105 active:scale-95">
+            <Button className="w-full bg-transparent border border-border text-foreground hover:bg-gradient-to-r hover:from-gradient-start hover:to-gradient-end hover:text-white transition-all hover:scale-105 active:scale-95">
               Send Message
             </Button>
           </form>

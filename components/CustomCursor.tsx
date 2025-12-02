@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -123,11 +123,11 @@ const CustomCursor = () => {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isClicking ? 0.5 : isHovering ? 1.5 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isClicking ? 0.6 : isHovering ? 1.3 : 1})`,
           transition: 'transform 0.1s ease-out',
         }}
       >
-        <div className={`w-3 h-3 rounded-full transition-all duration-100 ${
+        <div className={`w-2 h-2 rounded-full transition-all duration-100 ${
           isHovering 
             ? "bg-gradient-to-r from-gradient-start to-gradient-end shadow-lg shadow-primary/50" 
             : "bg-primary"
@@ -140,13 +140,13 @@ const CustomCursor = () => {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isClicking ? 0.75 : isHovering ? 2 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isClicking ? 0.75 : isHovering ? 1.6 : 1})`,
           transition: 'transform 0.15s ease-out',
         }}
       >
-        <div className={`w-8 h-8 rounded-full border-2 transition-all duration-150 ${
+        <div className={`w-6 h-6 rounded-full border-2 transition-all duration-150 ${
           isHovering 
-            ? "border-primary scale-150 bg-primary/20 shadow-lg shadow-primary/30" 
+            ? "border-primary scale-110 bg-primary/20 shadow-lg shadow-primary/30" 
             : "border-primary/60 bg-transparent"
         } ${isClicking ? "border-primary scale-75" : ""}`} />
       </div>
@@ -158,13 +158,13 @@ const CustomCursor = () => {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 1.25 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1.12 : 1})`,
           transition: 'transform 0.2s ease-out',
         }}
       >
-        <div className={`w-16 h-16 rounded-full border transition-all duration-200 ${
+        <div className={`w-12 h-12 rounded-full border transition-all duration-200 ${
           isHovering 
-            ? "border-primary/40 bg-primary/10 scale-125" 
+            ? "border-primary/40 bg-primary/10 scale-110" 
             : "border-primary/20 bg-primary/5"
         }`} />
       </div>
@@ -176,13 +176,13 @@ const CustomCursor = () => {
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1.15 : 1})`,
           transition: 'transform 0.25s ease-out',
         }}
       >
-        <div className={`w-32 h-32 rounded-full transition-all duration-250 ${
+        <div className={`w-20 h-20 rounded-full transition-all duration-250 ${
           isHovering 
-            ? "bg-primary/10 scale-150" 
+            ? "bg-primary/10 scale-115" 
             : "bg-primary/5"
         }`} />
       </div>

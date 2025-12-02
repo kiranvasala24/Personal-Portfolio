@@ -55,7 +55,7 @@ const Hero = () => {
   const codeSnippets = ["{ code }", "</html>", "const", "function", "=>", "import", "class", "async", "await", "export"];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-background via-background to-secondary/20 dark:from-background dark:via-background/95 dark:to-secondary/10">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-background via-background to-secondary/20 dark:from-background dark:via-background/95 dark:to-secondary/10">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {codeSnippets.map((snippet, index) => (
