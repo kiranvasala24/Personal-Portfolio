@@ -61,12 +61,12 @@ const Hero = () => {
         {codeSnippets.map((snippet, index) => (
           <div
             key={index}
-            className="absolute text-muted-foreground/10 dark:text-muted-foreground/5 font-mono text-sm animate-float"
+            className="absolute text-muted-foreground/50 dark:text-muted-foreground/40 font-mono text-sm animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${index * 0.5}s`,
-              animationDuration: `${6 + Math.random() * 3}s`
+              animationDuration: `${18 + Math.random() * 9}s`
             }}
           >
             {snippet}
@@ -116,8 +116,24 @@ const Hero = () => {
                   size="lg" 
                   variant="outline" 
                   className="hover:bg-secondary transition-all hover:scale-105 active:scale-95 hover:border-primary/50"
-                  onClick={() => {
-                    window.open("/Kirankumar Vasala_Full Stack Software Engineer.pdf", "_blank");
+                  onClick={async () => {
+                    try {
+                      const response = await fetch("/Kirankumar Vasala_Full Stack Software Engineer.pdf");
+                      if (!response.ok) throw new Error("File not found");
+                      
+                      const blob = await response.blob();
+                      const url = window.URL.createObjectURL(blob);
+                      const link = document.createElement("a");
+                      link.href = url;
+                      link.download = "Kirankumar Vasala_Full Stack Software Engineer.pdf";
+                      document.body.appendChild(link);
+                      link.click();
+                      window.URL.revokeObjectURL(url);
+                      document.body.removeChild(link);
+                    } catch (error) {
+                      alert("Resume file not found. Please add it to the public folder.");
+                      console.error("Download failed:", error);
+                    }
                   }}
                 >
                   Download CV
@@ -157,17 +173,17 @@ const Hero = () => {
             </div>
 
             {/* Profile Image */}
-            <div className="flex-shrink-0 animate-scale-in" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="flex-shrink-0 animate-scale-in" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards', animationDuration: '1.8s', animationTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
               <div className="relative group">
-                <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-gradient-to-br from-primary/20 to-gradient-end/20 dark:from-primary/30 dark:to-gradient-end/30 dark:border-border/20 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-primary/30">
+                <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-gradient-to-br from-primary/20 to-gradient-end/20 dark:from-primary/30 dark:to-gradient-end/30 dark:border-border/20 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-700 group-hover:scale-105 group-hover:shadow-primary/30">
                   <img 
                     src="/profile.jpg" 
                     alt="Kirankumar Vasala" 
-                    className="w-full h-full object-cover dark:brightness-110 transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover dark:brightness-110 transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary to-gradient-end rounded-xl opacity-20 blur-2xl dark:opacity-30 animate-pulse-slow transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" />
-                <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-tr from-gradient-end to-primary rounded-xl opacity-20 blur-2xl dark:opacity-30 animate-pulse-slow transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style={{ animationDelay: '1s' }} />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary to-gradient-end rounded-xl opacity-20 blur-2xl dark:opacity-30 animate-pulse-slow transition-all duration-700 group-hover:opacity-40 group-hover:scale-110" />
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-tr from-gradient-end to-primary rounded-xl opacity-20 blur-2xl dark:opacity-30 animate-pulse-slow transition-all duration-700 group-hover:opacity-40 group-hover:scale-110" style={{ animationDelay: '1s' }} />
               </div>
             </div>
           </div>
