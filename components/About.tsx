@@ -33,7 +33,7 @@ const About = () => {
           <p className={`transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`} style={{ transitionDelay: '0.2s' }}>
-            Right now I’m wrapping up my Master’s in Computer Science at <span className="text-foreground font-semibold hover:text-primary transition-colors cursor-default">Pace University</span> (GPA 3.74) while building projects that focus on reliability, smooth UX and solid engineering under the hood.
+            Master’s in Computer Science at <span className="text-foreground font-semibold hover:text-primary transition-colors cursor-default">Pace University</span> (GPA 3.74) while building projects that focus on reliability, smooth UX and solid engineering under the hood.
           </p>
           <p className={`transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
