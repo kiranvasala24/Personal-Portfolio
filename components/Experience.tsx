@@ -7,7 +7,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Full Stack Developer Intern",
+      title: "Full Stack Developer",
       company: "FilmyAI",
       period: "Oct 2024 - Present",
       description: "Engineering full-stack features in a fast-paced startup environment with focus on scalability and UX.",
@@ -18,7 +18,7 @@ const Experience = () => {
       ],
     },
     {
-      title: "Front-end Developer Intern",
+      title: "Frontend Developer Intern",
       company: "Showcase",
       period: "Aug 2024 - Oct 2024",
       description: "Developed accessible UI components and enhanced user navigation with modern frameworks.",
@@ -29,9 +29,9 @@ const Experience = () => {
       ],
     },
     {
-      title: "Web Developer",
+      title: "Full Stack Developer",
       company: "Flymax Multi Services",
-      period: "Apr 2023 - Aug 2023",
+      period: "Aug 2022 - Jul 2023",
       description: "Delivered full-stack features for robust, real-time platform functionality in a dynamic startup.",
       achievements: [
         "Delivered full-stack features using React, JavaScript, and Python (Flask) with Firebase and PostgreSQL integration",
@@ -42,7 +42,7 @@ const Experience = () => {
     {
       title: "Full Stack Developer Intern",
       company: "Solar Secure Solutions",
-      period: "Aug 2022 - Oct 2022",
+      period: "Jun 2021 - Jun 2022",
       description: "Implemented secure REST APIs and automated deployment strategies for customer-facing platforms.",
       achievements: [
         "Implemented and tested secure REST APIs, improving data retrieval speed and reducing backend errors by 30%",
