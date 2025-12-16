@@ -18,7 +18,7 @@ const Projects = () => {
       title: "AI-Productivity-Tools",
       description:
         "AI Productivity Hub is a collection of AI-powered tools built with React and TypeScript that streamline workflows, automate tasks, and enhance productivity.",
-      tags: ["React, TypeScript, Vite, Tailwind CSS, shadcn-ui, AI Tools, Productivity, Automation, Frontend, Web App, OpenAI, Full-Stack, Developer Tools"],
+      tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn-ui", "AI Tools", "Productivity", "Automation", "Frontend", "Web App", "OpenAI", "Full-Stack", "Developer Tools"],
       github: "https://aitoolskv.netlify.app/",
       demo: "#",
       image: "/aitools.png",
