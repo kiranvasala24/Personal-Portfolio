@@ -18,7 +18,7 @@ const Projects = () => {
       title: "Data Viz Pro",
       description:
         "DataViz Pro is a privacy-first, browser-based data visualization tool that transforms Excel and CSV files into interactive, AI-powered dashboards with built-in data quality checks and multi-stakeholder views—no backend required",
-      tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn-ui", "AI Tools", "Productivity", "Automation", "Frontend", "Web App", "OpenAI", "Full-Stack", "Developer Tools"],
+      tags: ["React", "Typescript", "Data-visualization", "Dashboard", "Ai-insights", "Excel-parser", "Csv-processing", "Interactive-charts", "Business-intelligence", "Data-analytics", "Automated-dashboard", "netlify"],
       github: "https://datavizproo.netlify.app/",
       demo: "https://datavizproo.netlify.app/",
       image: "/MainPage.png",
