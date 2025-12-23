@@ -21,7 +21,7 @@ const Projects = () => {
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn-ui", "AI Tools", "Productivity", "Automation", "Frontend", "Web App", "OpenAI", "Full-Stack", "Developer Tools"],
       github: "https://datavizproo.netlify.app/",
       demo: "https://datavizproo.netlify.app/",
-      image: "/aitools.png",
+      image: "",
       placeholder: "E",
     },
     {
@@ -31,7 +31,7 @@ const Projects = () => {
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn-ui", "AI Tools", "Productivity", "Automation", "Frontend", "Web App", "OpenAI", "Full-Stack", "Developer Tools"],
       github: "https://aitoolskv.netlify.app/",
       demo: "https://aitoolskv.netlify.app/",
-      image: "/aitools.png",
+      image: "/MainPage.png",
       placeholder: "E",
     },
     {
