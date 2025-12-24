@@ -118,7 +118,7 @@ const Hero = () => {
                   className="hover:bg-secondary transition-all hover:scale-105 active:scale-95 hover:border-primary/50"
                   onClick={async () => {
                     try {
-                      const response = await fetch("/Kirankumar Vasala_Full Stack Software Engineer.pdf");
+                      const response = await fetch("/Kirankumar Vasala_FullStackDeveloper(1).pdf");
                       if (!response.ok) throw new Error("File not found");
                       
                       const blob = await response.blob();
