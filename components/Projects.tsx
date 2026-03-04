@@ -15,6 +15,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "3D Word Cloud",
+      description:
+        "3D Word Cloud is an interactive, AI-powered article visualization tool that extracts key topics using NLP (TF-IDF) and renders them in a dynamic, GPU-accelerated 3D sphere—turning any article URL into an immersive, explorable insight experience.",
+      tags: [
+      "React", "TypeScript", "ThreeJS", "React-Three-Fiber", "Data-visualization", "NLP", "TF-IDF", "FastAPI", "Python", "BeautifulSoup", "Scikit-learn", "Interactive-UI", "Fullstack", "GPU-Rendering"
+        ],
+      github: "https://github.com/kiranvasala24/3D-Word-Cloud-Kirankumar",
+      demo: "https://your-live-demo-link.com",
+      image: "/3dword.png",  
+      placeholder: "3D"
+    },
+    {
       title: "Data Viz Pro",
       description:
         "DataViz Pro is a privacy-first, browser-based data visualization tool that transforms Excel and CSV files into interactive, AI-powered dashboards with built-in data quality checks and multi-stakeholder views—no backend required",
