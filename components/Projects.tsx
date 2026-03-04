@@ -22,7 +22,7 @@ const Projects = () => {
         "React", "TypeScript", "ThreeJS", "React-Three-Fiber", "Data-visualization", "NLP", "TF-IDF", "FastAPI", "Python", "BeautifulSoup", "Scikit-learn", "Interactive-UI", "Fullstack", "GPU-Rendering"
       ],
       github: "https://github.com/kiranvasala24/3D-Word-Cloud-Kirankumar",
-      demo: "https://your-live-demo-link.com",
+      demo: "https://3d-wordcloud.netlify.app/",
       image: "/3dword.png",
       placeholder: "3D"
     },
