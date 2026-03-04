@@ -19,11 +19,11 @@ const Projects = () => {
       description:
         "3D Word Cloud is an interactive, AI-powered article visualization tool that extracts key topics using NLP (TF-IDF) and renders them in a dynamic, GPU-accelerated 3D sphere—turning any article URL into an immersive, explorable insight experience.",
       tags: [
-      "React", "TypeScript", "ThreeJS", "React-Three-Fiber", "Data-visualization", "NLP", "TF-IDF", "FastAPI", "Python", "BeautifulSoup", "Scikit-learn", "Interactive-UI", "Fullstack", "GPU-Rendering"
-        ],
+        "React", "TypeScript", "ThreeJS", "React-Three-Fiber", "Data-visualization", "NLP", "TF-IDF", "FastAPI", "Python", "BeautifulSoup", "Scikit-learn", "Interactive-UI", "Fullstack", "GPU-Rendering"
+      ],
       github: "https://github.com/kiranvasala24/3D-Word-Cloud-Kirankumar",
       demo: "https://your-live-demo-link.com",
-      image: "/3dword.png",  
+      image: "/3dword.png",
       placeholder: "3D"
     },
     {
@@ -133,11 +133,10 @@ const Projects = () => {
     <section
       id="projects"
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`section-padding transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      className={`section-padding transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
     >
-      <div className="container mx-auto max-w-2xl">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
@@ -165,7 +164,7 @@ const Projects = () => {
           </button>
 
           {/* Carousel Wrapper */}
-          <div 
+          <div
             ref={carouselRef}
             className="overflow-hidden px-4 md:px-0"
           >
@@ -177,13 +176,13 @@ const Projects = () => {
             >
               {projects.map((project, index) => (
                 <div key={index} className="min-w-full flex-shrink-0 flex justify-center px-4">
-                  <Card className="bg-card border border-border rounded-xl overflow-hidden card-hover transition-all duration-500 h-full flex flex-col group max-w-xl w-full">
+                  <Card className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col group max-w-4xl w-full">
                     {/* Project Image */}
-                    <div className="relative w-full h-36 overflow-hidden bg-gradient-to-br from-primary/20 via-gradient-end/20 to-primary/10 dark:from-primary/30 dark:via-gradient-end/30 dark:to-primary/20 group/image">
+                    <div className="relative w-full h-64 md:h-[500px] overflow-hidden bg-muted/20 flex items-center justify-center p-4">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-125"
+                        className="max-w-full max-h-full object-contain transition-all duration-700 shadow-sm rounded-md"
                         onError={(e) => {
                           // Fallback to gradient placeholder if image doesn't exist
                           const target = e.target as HTMLImageElement;
@@ -199,8 +198,8 @@ const Projects = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/20 to-transparent pointer-events-none" />
                     </div>
-                    
-                    <CardHeader className="pb-3">
+
+                    <CardHeader className="pb-6 pt-8">
                       <CardTitle className="font-display text-xl mb-2">
                         {project.title}
                       </CardTitle>
@@ -208,7 +207,7 @@ const Projects = () => {
                         {project.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="pt-0">
+                    <CardContent className="pt-0 pb-8">
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.tags.map((tag, tagIndex) => (
                           <Badge
@@ -266,11 +265,10 @@ const Projects = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-primary w-8"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                }`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? "bg-primary w-8"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
